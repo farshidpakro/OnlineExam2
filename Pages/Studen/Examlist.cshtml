@@ -1,0 +1,36 @@
+﻿@page
+@model LMS.Pages.Studen.ExamlistModel
+@{
+    ViewData["Title"] = "Examlist";
+}
+
+<form  method="post">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @foreach (var item in Model.Examlist)
+    {
+       
+
+    <button type="submit" asp-page-handler="Redirect" asp-route-Id="@item.Id" asp-route-Idtwo="@Model.Id" style=" background-color:cadetblue; border-radius:20px;">
+        <div style="margin:50px; height:100px; width:100px;">
+            <p style="font-size:20px;">
+                @Html.DisplayFor(m => item.Name)
+
+            </p>
+            <p style="font-size:16px;">
+                @Html.DisplayFor(m => item.Description)
+
+            </p>
+        </div>
+    </button>
+        
+
+    }
+
+
+
+</form>
+

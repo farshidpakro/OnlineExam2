@@ -1,0 +1,52 @@
+﻿@page
+@model LMS.Pages.Studen.ExamModel
+@{
+    ViewData["Title"] = "Exam";
+}
+
+<form method="post" style="direction:rtl; font-size:20px;">
+    <div style="display:inline-block; font-size:20px; align-items:center; ">
+        <span style="margin:20px;"><span> نام :</span> @Model.Students[0].Name</span>
+        <span style="margin:20px;"><span> نام خانوادگی :</span> @Model.Students[0].Lastname </span>
+        <span style="margin:20px;"><span> شماره دانشجویی :</span> @Model.Students[0].Studentnum </span>
+        <span style="margin:20px;"><span> نام گروه امتحانی :</span> @Model.Examlists[0].Name</span>
+    </div>
+    <hr />
+    <hr />
+    <br /><br /><br />
+
+    @{int one = 0; }
+    @{int three = 1; }
+    @foreach (var i in Model.Questions)
+    {
+        string[] str = { i.Anone, i.Antwo, i.Anthree, i.Anfour };
+
+
+        int two = 1;
+        <div>
+            <p>@three-</p><p>@Html.DisplayFor(m => i.Qs)</p>
+            @foreach (var j in str)
+            {
+                <input asp-for="@Model.Grades[one].Qsans" type="radio"
+                       value="@two">
+                <label>@Html.DisplayFor(m => j)</label><br />
+                two++;
+            }
+            <input type="hidden" asp-for="@Model.Grades[one].Qskey" value="@i.Qskey" />
+            <input type="hidden" asp-for="@Model.Grades[one].Stdforeinkey" value="@Model.Students[0].Id" />
+            <input type="hidden" asp-for="@Model.Grades[one].Examname" value="@Model.Examlists[0].Name" />
+            <br />
+            <hr />
+            <hr />
+
+        </div>
+        one++;
+                    three++;
+
+    }
+    <button type="submit" class="btn btn-success">
+        <p style="font-size:20px;">اتمام ازمون</p>
+    </button>
+
+</form>
+

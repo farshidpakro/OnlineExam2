@@ -1,0 +1,29 @@
+﻿@page
+@model LMS.Pages.Studen.GradeModel
+@{
+    ViewData["Title"] = "Grade";
+}
+<br />
+<br />
+<hr />
+<table class="table">
+    <tr class="row">
+        <td>نام</td>
+        <td>شماره دانشجویی</td>
+        <td>نام امتحان </td>
+        <td>تعداد سوال </td>
+        <td>جواب های درست</td>
+    </tr>
+    @foreach (var i in Model.Stdgrades)
+    {
+    <tr class="row">
+        <td>@Html.DisplayFor(m => i.Stdname)</td>
+        <td>@Html.DisplayFor(m => i.Stdnum)</td>
+        <td>@Html.DisplayFor(m => i.Examname)</td>
+        <td>@Html.DisplayFor(m => i.Questioncount)</td>
+        <td>@Html.DisplayFor(m => i.Stdgrade)</td>
+    </tr>
+    }
+</table>
+<a asp-page="/Index" class="btn btn-success">بازگشت به صفحه اصلی</a>
+

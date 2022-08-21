@@ -1,0 +1,58 @@
+﻿@page
+@model LMS.Pages.Master.AddexamqsModel
+@{
+    ViewData["Title"] = "Addexamqs";
+}
+
+
+<form method="post" style="margin-top:25px;">
+
+    <div asp-validation-summary="ModelOnly"> </div>
+    <div class="form-group">
+        <label style="font-size:30px;"> سوال و گزینه ها را در مکان مناسب وارد کنید  </label>
+        <input asp-for="Questions.Qs" class="form-control" placeholder=" سوال ">
+        <span class="text-danger" asp-validation-for="Questions.Qs">  </span>
+    </div>
+    <div class="form-group">
+        <input asp-for="Questions.Anone" class="form-control" placeholder="گزینه اول">
+        <span class="text-danger" asp-validation-for="Questions.Anone">  </span>
+    </div>
+    <div class="form-group">
+        <input asp-for="Questions.Antwo" class="form-control" placeholder="گزینه دوم">
+        <span class="text-danger" asp-validation-for="Questions.Antwo">  </span>
+    </div>
+    <div class="form-group">
+        <input asp-for="Questions.Anthree" class="form-control" placeholder="گزینه سوم">
+        <span class="text-danger" asp-validation-for="Questions.Anthree">  </span>
+    </div>
+    <div class="form-group">
+        <input asp-for="Questions.Anfour" class="form-control" placeholder="گزینه چهارم">
+        <span class="text-danger" asp-validation-for="Questions.Anfour">  </span>
+    </div>
+    <div class="form-group">
+        <label style="font-size:20px;">کلید سوال</label>
+        <select asp-for="Questions.Qskey">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <span class="text-danger" asp-validation-for="Questions.Qskey">  </span>
+    </div>
+    <div class="form-group">
+        <input hidden asp-for="Questions.Examlistid" value="@Model.Id">
+    </div>
+
+    <button type="submit" class="btn btn-success">سوال بعدی </button>
+    <button type="submit" asp-page-handler="Std" class="btn btn-danger">اخرین سوال</button>
+
+
+
+
+</form>
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+
+
+}

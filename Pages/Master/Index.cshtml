@@ -1,0 +1,91 @@
+﻿@page
+@model LMS.Pages.Master.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<br />
+<br />
+<form  method="post">
+    <div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <a class=" btn  btn-success  " asp-page="/Master/Examname" >Create Exam (ایجاد ازمون جدید)</a>
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div>
+            <p style="font-size:40px; text-align:center;">لیست ازمون های موجود</p>
+
+
+        </div>
+        @if (Model.Examlists.Count() > 0)
+        {
+            <table class="table table-bordered ">
+                <tr class="row">
+                    <td>
+                        @Html.DisplayNameFor(m => m.Examlists.FirstOrDefault().Name)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(m => m.Examlists.FirstOrDefault().Time)
+                    </td>
+                    <td>
+
+                        @Html.DisplayNameFor(m => m.Examlists.FirstOrDefault().Description)
+                    </td>
+
+                </tr>
+                @foreach (var item in Model.Examlists)
+                {
+                <tr class="row" >
+                    <td >
+                        @Html.DisplayFor(m => item.Name)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Time)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Description)
+
+                    </td>
+
+                    <td>
+                        <button type="submit" asp-page-handler="Delete" asp-route-Id="@item.Id" onclick="return confirm('Are you sure you want to delete ?')" class="btn btn-danger">Delete</button>
+
+                    </td>
+                    <td>
+                        <button asp-page-handler="Detail" asp-route-Id="@item.Id"  class="btn btn-primary">Detail</button>
+                    </td>
+
+                </tr>
+
+
+                }
+
+
+            </table>
+
+
+        }
+        else
+        {
+
+            <p style=" font-size:20px;"> ازمونی در لیست موجود نیست</p>
+        }
+
+
+
+    </div>
+</form>
+

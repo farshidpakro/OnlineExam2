@@ -1,0 +1,61 @@
+﻿@page
+@model LMS.Pages.Master.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<hr />
+<hr />
+<br /><br /><br />
+
+@{int one = 0; }
+@{int three = 1; }
+@foreach (var i in Model.Questions)
+{
+   
+
+
+    int two = 1;
+            <div style="direction:rtl;">
+                <p>@three-</p><p>@Html.DisplayFor(m => i.Qs)</p>
+                <p>@Html.DisplayFor(m => i.Anone)</p>
+                <p>@Html.DisplayFor(m => i.Antwo)</p>
+                <p>@Html.DisplayFor(m => i.Anthree)</p>
+                <p>@Html.DisplayFor(m => i.Anfour)</p>
+                <br />
+                <hr />
+                
+
+            </div>
+    one++;
+    three++;
+
+}
+<hr />  
+<hr />  
+
+<table style="direction:rtl;" class="table">
+    <tr class="row">
+        <td> نام  </td>
+        <td> نام خوانوادگی </td>
+        <td>  شماره دانشجویی  </td>
+
+    </tr>
+    @foreach (var a in Model.Students)
+    {
+
+        <tr class="row">
+            <td>@Html.DisplayFor(m => a.Name)  </td>
+            <td>@Html.DisplayFor(m => a.Lastname)    </td>
+            <td>@Html.DisplayFor(m => a.Studentnum)  </td>
+
+        </tr>
+    }
+
+</table>
+
+<hr />  
+<hr />
+<a asp-page="./Index" class="btn btn-success">بازگشت</a>
+
+

@@ -1,0 +1,38 @@
+﻿@page
+@model LMS.Pages.Master.ExamnameModel
+@{
+    ViewData["Title"] = "Examname";
+}
+
+<form method="post" style="margin-top:30px;">
+
+    <div asp-validation-summary="ModelOnly"> </div>
+    <div class="form-group">
+        <label style="font-size:30px;">نام امتحان</label>
+        <input asp-for="Examlist.Name" class="form-control" placeholder="نام امتحان ">
+        <span class="text-danger" asp-validation-for="Examlist.Name">  </span>
+    </div>
+    <div class="form-group">
+        <label style="font-size:30px;">زمان امتحان (بر اساس دقیقه)</label>
+        <input type="number"  min="0" max="9999" asp-for="Examlist.Time" class="form-control" style="width:200px;" placeholder="0 ">
+        <span class="text-danger" asp-validation-for="Examlist.Time">  </span>
+    </div>
+    <div class="form-group">
+        <label style="font-size:30px;">توضیحات</label>
+        <input  asp-for="Examlist.Description" class="form-control" placeholder="توضیحات">
+        <span class="text-danger" asp-validation-for="Examlist.Description">  </span>
+    </div>
+
+    <button type="submit" class="btn btn-success">ایجاد عنوان امتحان</button>
+
+
+
+
+</form>
+@section Scripts{ 
+
+    <partial name="_ValidationScriptsPartial" />
+
+
+}
+
